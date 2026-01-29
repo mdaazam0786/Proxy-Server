@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the JAR
 COPY target/proxy-server-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose your proxy port
+# Expose your proxy port (Render will override with its own PORT)
 EXPOSE 8081
 
 # Default entrypoint to run the app
