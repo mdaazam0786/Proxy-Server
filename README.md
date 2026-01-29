@@ -7,7 +7,7 @@ The proxy forwards incoming client requests to a configurable origin server, cac
 
 ## 🔗 Project URL
 
-https://proxy-server.onrender.com
+[https://proxy-server.onrender.com](https://proxy-server-ju0q.onrender.com)
 
 ---
 
