@@ -1,11 +1,21 @@
-# Use OpenJDK 21
+# Build stage
+FROM amazoncorretto:21 AS builder
+
+WORKDIR /build
+
+# Copy the entire project
+COPY . .
+
+# Build the project
+RUN cd proxy-server && ./mvnw clean package -DskipTests
+
+# Runtime stage
 FROM amazoncorretto:21
 
-# Create a work directory
 WORKDIR /app
 
-# Copy the JAR from proxy-server directory
-COPY proxy-server/target/proxy-server-0.0.1-SNAPSHOT.jar app.jar
+# Copy the built JAR from builder stage
+COPY --from=builder /build/proxy-server/target/proxy-server-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port
 EXPOSE 8081
