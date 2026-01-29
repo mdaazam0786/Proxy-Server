@@ -20,5 +20,7 @@ COPY --from=builder /build/proxy-server/target/proxy-server-0.0.1-SNAPSHOT.jar a
 # Expose port
 EXPOSE 8081
 
-# Run the application
+# Run the application with CLI arguments
+# Port and origin will be passed as environment variables or command line args
 ENTRYPOINT ["java","-jar","/app/app.jar"]
+CMD ["--server.port=${PORT:-8081}", "--proxy.origin=${PROXY_ORIGIN}"]
