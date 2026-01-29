@@ -5,7 +5,7 @@ FROM amazoncorretto:21
 WORKDIR /app
 
 # Copy the JAR from proxy-server directory
-COPY proxy-server/target/proxy-server-0.0.1-SNAPSHOT.jar app.jar
+COPY target/proxy-server-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port
 EXPOSE 8081
