@@ -5,6 +5,12 @@ The proxy forwards incoming client requests to a configurable origin server, cac
 
 ---
 
+## 🔗 Project URL
+
+https://github.com/mdaazam0786/Proxy-Server
+
+---
+
 ## 📌 Project Overview
 
 This project implements a simple yet production-oriented caching proxy to demonstrate:
@@ -61,5 +67,3 @@ docker run -d \
   -p 6379:6379 \
   redis:7
 
-## Project URL
-https://github.com/mdaazam0786/Proxy-Server
