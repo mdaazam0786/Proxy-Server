@@ -3,8 +3,14 @@ FROM amazoncorretto:21 AS builder
 
 WORKDIR /build
 
-# Install Maven
-RUN yum install -y maven
+# Install Maven 3.9.x
+RUN yum install -y wget && \
+    wget https://archive.apache.org/dist/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz && \
+    tar -xzf apache-maven-3.9.6-bin.tar.gz && \
+    mv apache-maven-3.9.6 /opt/maven && \
+    rm apache-maven-3.9.6-bin.tar.gz
+
+ENV PATH="/opt/maven/bin:${PATH}"
 
 # Copy the entire project
 COPY . .
