@@ -3,11 +3,14 @@ FROM amazoncorretto:21 AS builder
 
 WORKDIR /build
 
+# Install Maven
+RUN yum install -y maven
+
 # Copy the entire project
 COPY . .
 
 # Build the project
-RUN cd proxy-server && ./mvnw clean package -DskipTests
+RUN cd proxy-server && mvn clean package -DskipTests
 
 # Runtime stage
 FROM amazoncorretto:21
