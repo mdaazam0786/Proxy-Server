@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: proxy-server
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: ./
+    buildCommand: ./mvnw clean package -DskipTests
+    envVars:
+      - key: SPRING_REDIS_URL
+        sync: false
+      - key: PORT
+        value: 10000
